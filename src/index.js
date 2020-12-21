@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+// import the bootstrap css
+import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// the componet is imported
 import App from './App';
+
+import SimpleComponent from './components/classcomponents/simplecomponent/simplecomponent';
+
+import StateComponent from './components/classcomponents/statecomponent/statecoponent';
+
 import reportWebVitals from './reportWebVitals';
+
+
+const message = 'I am the data from ReactDOM.render()';
+
+
+// <App/> is rendered
+// ReactDOM.render() method will mount
+// the component n <div> element with 'id' as 'root' 
+
+//  <SimpleComponent  msg = {message}/>, the 'msg' is the dynamic attribute appended in 'props'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StateComponent/>
   </React.StrictMode>,
   document.getElementById('root')
 );

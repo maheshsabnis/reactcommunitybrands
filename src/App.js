@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+// the fucntional component
+// return HTML DOM
 function App() {
   return (
     <div className="App">
@@ -8,6 +10,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+          The Sample all created using
         </p>
         <a
           className="App-link"
@@ -21,5 +24,5 @@ function App() {
     </div>
   );
 }
-
+// the component is exported as ES 6 Module
 export default App;
