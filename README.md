@@ -86,6 +86,10 @@ create-react-app <APP-NAME>
         - Create Re-Usable Component as Generic Components
         - Defne Data properties for Data Binding      
         - Methods to emit events for components to communicate each other   
+    - React 16.0+ 
+        - Error Boundry
+            - Container component that is sued to manage lifecycle of all children if any child child component crash or thows exception the error boundry is responsinble to render fallback UI
+            - THis component will manage the DOM crash prevention    
 3. Service Calls
 
 4. Single  Page Application using Routing

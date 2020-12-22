@@ -12,6 +12,12 @@ import StateComponent from './components/classcomponents/statecomponent/statecop
 
 import ProductStateComponent from './components/classcomponents/productstatecomponent/productstatecomponent'
 
+
+import LifeCycleParentComponent from './components/classcomponents/LIfecycleComponents/lifecyclehookcomponent';
+
+import RendererComponent from './components/classcomponents/errorboundries/handleErrorComponent';
+
+
 import reportWebVitals from './reportWebVitals';
 
 
@@ -26,7 +32,7 @@ const message = 'I am the data from ReactDOM.render()';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProductStateComponent/>
+    <RendererComponent/>
   </React.StrictMode>,
   document.getElementById('root')
 );
