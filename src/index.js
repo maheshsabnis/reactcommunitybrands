@@ -10,6 +10,8 @@ import SimpleComponent from './components/classcomponents/simplecomponent/simple
 
 import StateComponent from './components/classcomponents/statecomponent/statecoponent';
 
+import ProductStateComponent from './components/classcomponents/productstatecomponent/productstatecomponent'
+
 import reportWebVitals from './reportWebVitals';
 
 
@@ -24,7 +26,7 @@ const message = 'I am the data from ReactDOM.render()';
 
 ReactDOM.render(
   <React.StrictMode>
-    <StateComponent/>
+    <ProductStateComponent/>
   </React.StrictMode>,
   document.getElementById('root')
 );

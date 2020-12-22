@@ -81,7 +81,11 @@ create-react-app <APP-NAME>
     - To define a single method to update states of component for all input elements, define the 'name' attribute for each input element having same name as the state property
         .e.g. if state is  'fname' then <input type="text" name="fname" value={this.state.fname}>
         - the single method to update all elemets will be
-            this.setSate({[evt.target.name]: evt.target.value});     
+            this.setSate({[evt.target.name]: evt.target.value});    
+    - UI Composition
+        - Create Re-Usable Component as Generic Components
+        - Defne Data properties for Data Binding      
+        - Methods to emit events for components to communicate each other   
 3. Service Calls
 
 4. Single  Page Application using Routing
@@ -89,3 +93,13 @@ create-react-app <APP-NAME>
 5. State Management
 
 6. Deployment
+
+
+
+Hands-on Lab: CREATE A TableComponent that will generate rows and columns based on ‘dataSource’ props passed to it.  The table rows should generate ‘Delete’ button if the ‘canDelete’ props is ‘true’ passed from parent component.   Once this delete button clicked then the record displayed in table must be deleted from the collection of parent component. 
+The selected row data must be displayed in Text / Selecte elements of parent.  
+(Mandatory)
+
+Optional: The TableComponent should accept props ‘canSort’ if this is true, then pass the ‘sortKey’ props as property from the collection based n which the table is sorted.
+
+Create a "Validation Summary" component that will display error messages immediately when error occure (Mandatory) 
