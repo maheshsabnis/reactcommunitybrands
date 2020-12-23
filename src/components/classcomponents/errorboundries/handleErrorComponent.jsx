@@ -51,6 +51,10 @@ class MyCounterComponent extends Component {
         this.state = { 
              counter:0   
         };
+
+        for(let i=0; i<10000;i++){
+            console.log(`i = ${i}`);
+        }
     }
     increament=()=>{
         this.setState({counter: this.state.counter+1});

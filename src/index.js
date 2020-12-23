@@ -16,7 +16,14 @@ import ProductStateComponent from './components/classcomponents/productstatecomp
 import LifeCycleParentComponent from './components/classcomponents/LIfecycleComponents/lifecyclehookcomponent';
 
 import RendererComponent from './components/classcomponents/errorboundries/handleErrorComponent';
+import HttpServiceComponent from './components/classcomponents/servicecomponent/httpservicecomponent';
 
+import MainComponent from './components/classcomponents/routingapp/maincomponent';
+
+
+// import the BrowserRouter for mounting Router Object Model
+
+import {BrowserRouter} from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -32,7 +39,10 @@ const message = 'I am the data from ReactDOM.render()';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RendererComponent/>
+    {/*<BrowserRouter>
+       <MainComponent/>
+    </BrowserRouter> */}
+    <HttpServiceComponent/>
   </React.StrictMode>,
   document.getElementById('root')
 );

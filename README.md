@@ -90,10 +90,24 @@ create-react-app <APP-NAME>
         - Error Boundry
             - Container component that is sued to manage lifecycle of all children if any child child component crash or thows exception the error boundry is responsinble to render fallback UI
             - THis component will manage the DOM crash prevention    
+
 3. Service Calls
+    - The 'axios' library to make external AJAX calls
+    - The axios is promise(?) based library
+        - This manages a pipeline of Async messaging programs with implicit async statesubscription
+    - The get requests must be implemented using 'componentDidMount' lifecycle hook of the component
+    - npm install --save axios
 
 4. Single  Page Application using Routing
+    react-router-dom
+    npm install --save react-router-dom
 
+    BrowserRouter  --> The main component that is used to mount the Routing Object Model so that
+        the souting will e handdled
+    Link --> Provide the URL to the component to redirect
+    Route --> USed to define Route Table
+    Redirect --> Default redirct
+    Swicth --> Query mechanism to route table
 5. State Management
 
 6. Deployment
