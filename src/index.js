@@ -20,6 +20,11 @@ import HttpServiceComponent from './components/classcomponents/servicecomponent/
 
 import MainComponent from './components/classcomponents/routingapp/maincomponent';
 
+import SimpleFunctionalComponent from './components/functionalcomponents/simplefunctionalcomponent';
+import UseEffectAjaxComponent from './components/functionalcomponents/useEffectAjaxComponent';
+
+import USeEffectTogle from './components/functionalcomponents/useEffectToggle';
+
 
 // import the BrowserRouter for mounting Router Object Model
 
@@ -42,7 +47,7 @@ ReactDOM.render(
     {/*<BrowserRouter>
        <MainComponent/>
     </BrowserRouter> */}
-    <HttpServiceComponent/>
+    <USeEffectTogle/>
   </React.StrictMode>,
   document.getElementById('root')
 );

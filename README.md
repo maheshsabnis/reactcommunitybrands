@@ -108,9 +108,72 @@ create-react-app <APP-NAME>
     Route --> USed to define Route Table
     Redirect --> Default redirct
     Swicth --> Query mechanism to route table
+5. The WebComponent
+    - The Custom element having
+        - UI
+        - Data Properties
+        - Events
+        - Logic
+    - Functionl Components
+        - The ES 6 Functions Expression that returns HTML and ReactDom.render() takes a repsonsibility of rendering it by mounting it on DOM
+        - Programming has become easy from React 16.0+
+        - Code became maintainable and readable
+        - Hooks
+            - React's predefined functions for performing Lifecycle hooks operations, state handling and data sharing acrosss components
+            - They can be accessed only at Function Component level aka component level
+            - useState()
+                - Used for managing State Properties with initial value and callback function to update the state. Alternative for this.state={} and this.setState()
+                -  function useState<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>];
+                    - initialState, could be string, null, number, array, object
+                    - Dispatch<SetStateAction<S>>
+                        - Dispatch is going to listen to an event on element 
+                        - read a new value for state
+                        - update the initalValue of state with new value by executing the 'SetStateAction' which is a baclback function
+            - useContext()
+                - Used to share data across components 
+                - The 'createContext()' method of React, used to define a 'Provider' object to provide 'value' to other component. The other component must 'consume' the 'value' to read data from it.
+            - useEffect()
+                - Combination of componentDidMount() and componentWillUnMount()
+                    - componentDidMount()
+                        - Contain resource intensive operations e.f. REST Calls
+                    - componentWillUnMount()
+                        - CLeanup operations     
+                function useEffect(effect: EffectCallback, deps?: DependencyList): void;
+                    -  EffectCallback
+                        - The function to be executed for first loading of the component
+                    -  DependencyList
+                        - The ReadOnly Array, that instructs the useEffect() that the 'state' is modified the rendering is completed so stop execution          
+            - Additional Hooks
+                - useMemo()
+                    - Used for Caching the state values for better performance
+                - useCallback()
+                    - use by memoization, returns a memoized callback
+                - useReducer()
+                    - State Management in React w/o using Redux
+                    - Alternative to useState()
+                - useRef()
+                    - Used to refer UI element with its 'ref' name
+                        - Un-Controlled component    
 5. State Management
 
 6. Deployment
+
+
+
+let obj1 ={x:10};
+let obj2 = obj1;// equality
+
+obj1.x --> 10;
+obj2.x --> 10;
+
+obj2.x =100;
+
+obj2.x --> 100;
+obj1.x --> 100; 
+
+
+
+
 
 
 
@@ -121,3 +184,8 @@ The selected row data must be displayed in Text / Selecte elements of parent.
 Optional: The TableComponent should accept props ‘canSort’ if this is true, then pass the ‘sortKey’ props as property from the collection based n which the table is sorted.
 
 Create a "Validation Summary" component that will display error messages immediately when error occure (Mandatory) 
+
+
+Hands-on Lab
+1. CReate a ErrorBoundy like funcationality for Functiona Components so that the fallback UI can be created.
+2. Create a INPUT functional component that will accept only Email. If the Email is invalidated then the component will change the backcolor of INPUT to RED
