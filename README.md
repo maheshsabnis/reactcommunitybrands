@@ -187,5 +187,5 @@ Create a "Validation Summary" component that will display error messages immedia
 
 
 Hands-on Lab
-1. CReate a ErrorBoundy like funcationality for Functiona Components so that the fallback UI can be created.
+1. CReate a ErrorBoundry like funcationality for Functiona Components so that the fallback UI can be created.
 2. Create a INPUT functional component that will accept only Email. If the Email is invalidated then the component will change the backcolor of INPUT to RED
