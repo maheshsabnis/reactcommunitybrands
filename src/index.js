@@ -3,51 +3,33 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import the bootstrap css
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
-// the componet is imported
-import App from './App';
-
-import SimpleComponent from './components/classcomponents/simplecomponent/simplecomponent';
-
-import StateComponent from './components/classcomponents/statecomponent/statecoponent';
-
-import ProductStateComponent from './components/classcomponents/productstatecomponent/productstatecomponent'
 
 
-import LifeCycleParentComponent from './components/classcomponents/LIfecycleComponents/lifecyclehookcomponent';
+import {createStore} from 'redux';
+// impport reducer
+import  rootReducer from './reduxappfunctionalcomponents/reducers/reducers';
 
-import RendererComponent from './components/classcomponents/errorboundries/handleErrorComponent';
-import HttpServiceComponent from './components/classcomponents/servicecomponent/httpservicecomponent';
+import {Provider} from 'react-redux';
 
-import MainComponent from './components/classcomponents/routingapp/maincomponent';
-
-import SimpleFunctionalComponent from './components/functionalcomponents/simplefunctionalcomponent';
-import UseEffectAjaxComponent from './components/functionalcomponents/useEffectAjaxComponent';
-
-import USeEffectTogle from './components/functionalcomponents/useEffectToggle';
-
-
-// import the BrowserRouter for mounting Router Object Model
-
-import {BrowserRouter} from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals';
 
+import MainComponent from './reduxappfunctionalcomponents/maincomponent';
 
-const message = 'I am the data from ReactDOM.render()';
+
+// create a store by using reducer and also add the Browser's REDUX plug in, not recommended in Production 
+
+let store =  createStore(rootReducer,
+   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__());
 
 
-// <App/> is rendered
-// ReactDOM.render() method will mount
-// the component n <div> element with 'id' as 'root' 
-
-//  <SimpleComponent  msg = {message}/>, the 'msg' is the dynamic attribute appended in 'props'
-
+ 
 ReactDOM.render(
   <React.StrictMode>
-    {/*<BrowserRouter>
-       <MainComponent/>
-    </BrowserRouter> */}
-    <USeEffectTogle/>
+    {/* Provide Redux store to all  react components */}
+     <Provider store={store}>
+      <MainComponent/>
+     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
