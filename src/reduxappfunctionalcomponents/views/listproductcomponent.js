@@ -1,6 +1,9 @@
 import React  from 'react';
-
+import {useDispatch} from 'react-redux';
+import selectrow from './../actions/selectreowaction';
 const ListProductComponent=(props)=>{
+
+    let dispatch  = useDispatch();
 
     if(props.listProducts === undefined || props.listProducts.length === 0) {
         return (<div>No Record Found</div>)
@@ -16,7 +19,7 @@ const ListProductComponent=(props)=>{
                 <tbody>
                   {
                       props.listProducts.map((prd,idx)=>(
-                        <tr key={idx}>
+                        <tr key={idx} onClick={()=>dispatch(selectrow(prd.product))}>
                           <td>
                           {prd.product.ProductId}
                           </td>

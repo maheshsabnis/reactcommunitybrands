@@ -5,22 +5,49 @@ import './index.css';
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
-import {createStore} from 'redux';
-// impport reducer
-import  rootReducer from './reduxappfunctionalcomponents/reducers/reducers';
-
-import {Provider} from 'react-redux';
+ 
+ 
 
 
 import reportWebVitals from './reportWebVitals';
 
-import MainComponent from './reduxappfunctionalcomponents/maincomponent';
+ 
+import {createStore, applyMiddleware, compose} from 'redux';
 
+import {Provider} from 'react-redux';
+
+import reducer from './sagaapps/reducers/reducers';
+
+// import createSagaMiddleware
+// configure the saga mniddleware on the store
+
+import createSagaMiddleware from 'redux-saga';
+
+
+import MainSagaComponent  from './sagaapps/MainComponent';
+
+// import rootsaga
+import rootSaga from './sagaapps/sagas/index';
+
+
+// 
+
+const appSagaMiddleware = createSagaMiddleware();
+
+// compose-> used to enhance the createStore() method for passing additional
+// parameters to store for handling the execution
+const parameterEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__  || compose;
 
 // create a store by using reducer and also add the Browser's REDUX plug in, not recommended in Production 
 
-let store =  createStore(rootReducer,
-   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__());
+let store =  createStore(reducer, parameterEnhancers(applyMiddleware(appSagaMiddleware)));
+
+// start runing the rootSaga and hence all ist generator funcitons
+// when an action is dispatched from View, if the Saga middleware already have
+// geberator for the dispatched action then SAGA will be executed and then will generate
+// output action and the reducer will monitor the action and update the store
+appSagaMiddleware.run(rootSaga);
+
 
 
  
@@ -28,8 +55,8 @@ ReactDOM.render(
   <React.StrictMode>
     {/* Provide Redux store to all  react components */}
      <Provider store={store}>
-      <MainComponent/>
-     </Provider>
+        <MainSagaComponent></MainSagaComponent>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

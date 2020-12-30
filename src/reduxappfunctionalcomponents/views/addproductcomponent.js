@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+ 
 const AddProductComponent=(props)=>{
 
     const [product,updateProduct]= useState({ProductId:0,ProductName:''});
+     
+    useEffect(()=>{
+
+        if (props.selectproduct!==null)
+        {
+        updateProduct({ProductId:props.selectproduct.product.ProductId, ProductName:props.selectproduct.product.ProductName})
+    }
+},[props.selectproduct]);
 
     const clear=()=>{
         updateProduct({ProductId:0, ProductName:''});
