@@ -44,10 +44,10 @@ const message = 'I am the data from ReactDOM.render()';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/*<BrowserRouter>
+    <BrowserRouter>
        <MainComponent/>
-    </BrowserRouter> */}
-    <USeEffectTogle/>
+    </BrowserRouter>
+     
   </React.StrictMode>,
   document.getElementById('root')
 );

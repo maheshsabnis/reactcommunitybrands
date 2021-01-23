@@ -17,7 +17,7 @@ class HomeComponent extends Component {
         console.log('Home is unmounted');
     }
 
-    gotoAbout=()=>{
+     gotoAbout=()=>{
         // The BrowserRouter will use the 
         // history() object of the Browser 
         // and add the Link expression it

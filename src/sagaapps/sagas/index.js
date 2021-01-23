@@ -24,6 +24,13 @@ function getProductsData(){
     return Promise.resolve(response);
 }
 
+function saveProduct(prd){
+    let serv = new HttpService();
+    alert(`The save product Parameter ${JSON.stringify(prd)}`);
+    const response = serv.postData(prd).then((result)=>result.data);
+    return Promise.resolve(response);
+}   
+
 // generator function that will be used to subscrice to the promise, read data
 // and if the data read successful then return an output action
 function* fetchProductsGenerator(){
@@ -41,20 +48,20 @@ function* fetchProductsGenerator(){
 
 // Watcher to save data
 
-// function* saveProductsGenerator(action){
-//     console.log('3. Calling REST');
-
-//     const parameters = action.payload;
-//     // subscribe to the promise
-//     const response = yield call(getProductsData,parameters);
-//     console.log('4.DONE with s Calling REST');
-//     console.log(`eReceived data ${JSON.stringify(response)}`);
-//     // put the succsess response as output action and a payload
-//     yield put({
-//         type: 'GET_PRODUCTS_SUCCESS',
-//         products: response || {error: 'ERROR_OCCURED'}
-//     });
-// }
+function* saveProductsGenerator(action){
+    console.log('3. saveProductsGenerator');
+    const parameters = action.payload;
+    alert(`The SAGA Save Parameter ${JSON.stringify(parameters)}`);
+    // subscribe to the promise
+    const response = yield call(saveProduct,parameters);
+    console.log('4.DONE with s Calling REST');
+    console.log(`eReceived data ${JSON.stringify(response)}`);
+    // put the succsess response as output action and a payload
+    yield put({
+        type: 'SAVE_PRODUCTS_SUCCESS',
+        product: response || {error: 'ERROR_OCCURED'}
+    });
+}
 
 // generator function that will be used to listen (or take) the dispatcg request
 function* dispatchGetProductsAction(){
@@ -62,11 +69,16 @@ function* dispatchGetProductsAction(){
     yield takeLatest('GET_PRODUCTS',fetchProductsGenerator);
 }
 
+function* dispatchSaveProductsAction(){
+    console.log('2. Save Action is DIspatched');
+    yield takeLatest('ADD_PRODUCT',saveProductsGenerator);
+}
+
 // combine all saga generators so that the store will be aware about it
 // the Redux store will be this saga function as a middleware to monitor 
 // async calls
 export default function* rootSaga() {
     console.log('1. Started Listening by SAGA');
-    yield all([dispatchGetProductsAction()]);
+    yield all([dispatchGetProductsAction(), dispatchSaveProductsAction()]);
 }
 

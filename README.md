@@ -425,7 +425,25 @@ const ListProductComponent=(props)=>{
 
 export default ListProductComponent;
 
+======================================================================================================
+Unit Test with ENzyme
 
+1. Unit Test Suit
+    - Test Case
+        - Method that is used to execute the Test
+        - Arrangement
+            - Capturing or gatherting the prerequisites for the test
+                - Constants
+                - Objects
+                - Expected Result Store
+        - Act
+            - Execute an actual Unit (method to be test)
+            - Actual Result
+        - Assert
+            - Verify the Actual Result with Expected Result
+                - Equal
+                - NotEqual
+                - GreatherThan / LessThan
 
 
 
